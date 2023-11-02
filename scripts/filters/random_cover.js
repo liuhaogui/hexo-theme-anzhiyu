@@ -4,8 +4,22 @@
  */
 
 'use strict'
+var hexoLog = require('hexo-log');
+const {category} = require("hexo/lib/plugins/helper/is");
 
 hexo.extend.filter.register('before_post_render', data => {
+
+  // 图片资源路径替换 追加路径
+  if (data.slug) {
+    var reverseSource = data.source.split("").reverse().join("");
+    var fileName = reverseSource.substring(3, reverseSource.indexOf("/")).split("").reverse().join("");
+    console.log(`hexo-asset-img: filename: ${fileName}, title: ${data.title.trim()}, reverseSource: ${reverseSource}`);
+
+    var cate = data.slug.split("/")[0]
+    data.content = data.content.replace(/\]\(\.\//g,"](/posts/"+ cate +"/")
+  }
+
+
   const imgTestReg = /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/i
   let { cover: coverVal, top_img: topImg } = data
 

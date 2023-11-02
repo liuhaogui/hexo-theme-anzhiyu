@@ -19,6 +19,26 @@ const lazyload = htmlContent => {
   );
 }
 
+var fs = require('hexo-fs');
+
+// // copy图片资源目录到对应分类目录
+// hexo.extend.generator.register('after_generate', function(locals){
+//
+//   var dirPath = locals.posts.data[0].source.substr(0, locals.posts.data[0].source.lastIndexOf("/"))
+//   console.log('dirPath ', dirPath)
+//   var category = dirPath.substr(dirPath.lastIndexOf("/")+1)
+//   console.log('category ', category)
+//
+//   const { exec, spawn } = require('child_process')
+//   var basePath = process.cwd() + "/source/" + dirPath
+//   var destDir = basePath + "/_image"
+//   var targetDir = "public/posts/" + category + "/"
+//
+//   console.log ('cp -r ' + destDir + " " + targetDir )
+//   spawn('cp', ['-r', destDir, targetDir])
+//   // exec('cp -r ' + categoryPath+"/_image public/posts/ceph/")
+// });
+
 hexo.extend.filter.register('after_render:html', data => {
   const { enable, field } = hexo.theme.config.lazyload
   if (!enable || field !== 'site') return

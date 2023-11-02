@@ -1,3 +1,11 @@
+hexo.extend.filter.register('post_permalink', function(permalink){
+  if (permalink === "/archives/") {
+    console.log('/archives/ ', permalink)
+  }
+  if (!permalink) return permalink
+  return permalink.replace(/ /g,"-").replace(/%20/g,"-").replace("/archives/","/posts.html")
+});
+
 hexo.extend.filter.register("before_generate", () => {
   // Get first two digits of the Hexo version number
   const hexoVer = hexo.version.replace(/(^.*\..*)\..*/, "$1");

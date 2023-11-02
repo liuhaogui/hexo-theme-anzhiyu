@@ -51,7 +51,7 @@ hexo.extend.helper.register('aside_categories', function (categories, options) {
 
           result += `<li class="card-category-list-item ${parentClass}">`
 
-          result += `<a class="card-category-list-link" href="${this.url_for(cat.path)}">`
+          result += `<a class="card-category-list-link" href="/${this.url_for(cat.path)}">`
 
           result += `<span class="card-category-list-name">${cat.name}</span>`
 

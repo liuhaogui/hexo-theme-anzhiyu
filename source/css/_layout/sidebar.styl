@@ -287,8 +287,11 @@ li.card-category-list-item {
 }
 .card-widget.card-recent-post {
   padding: 0.4rem 1rem !important;
+  margin-top: 15px;
 }
-
+#aside-content :only-child > .card-widget.card-recent-post {
+  margin-top: 15px;
+}
 /* 文章toc */
 #aside-content #card-toc .toc-content .toc-link.active {
   border-radius: var(--anzhiyu-border-radius);
@@ -326,11 +329,9 @@ li.card-category-list-item {
 #aside-content #card-toc .toc-content .toc-link:not(.active) span {
   opacity: 0.6;
   cursor: pointer;
-  filter: blur(1px);
   transition: 0.3s;
 }
 #aside-content #card-toc:hover .toc-content .toc-link:not(.active) span {
-  filter: blur(0);
   opacity: 1;
 }
 #aside-content #card-toc .toc-content .toc-link:not(.active) span:hover {

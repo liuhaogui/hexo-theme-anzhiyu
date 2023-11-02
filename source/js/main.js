@@ -812,7 +812,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!GLOBAL_CONFIG_SITE.isPost) {
       const root = document.querySelector(":root");
-      root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
+      // root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
       requestAnimationFrame(() => {
         anzhiyu.initThemeColor();
       });
@@ -1240,7 +1240,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const path = document.getElementById("post-top-bg")?.src;
     if (!path) {
       // 非文章情况，直接设置不需要请求了
-      root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
+      // root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
       requestAnimationFrame(() => {
         anzhiyu.initThemeColor();
       });
