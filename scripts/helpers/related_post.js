@@ -53,7 +53,11 @@ hexo.extend.helper.register("related_posts", function (currentPost, allPosts) {
       const cover = relatedPosts[i].cover === false ? relatedPosts[i].randomcover : relatedPosts[i].cover;
       const title = this.escape_html(relatedPosts[i].title);
       result += `<div><a href="${this.url_for(relatedPosts[i].path)}" title="${title}">`;
-      result += `<img class="cover" src="${this.url_for(cover)}" alt="cover">`;
+      if(!cover) {
+        result += `<img class="cover" src="${this.url_for(config.error_img.post_page)}" alt="cover">`;
+      } else {
+        result += `<img class="cover" src="${this.url_for(cover)}" alt="cover">`;
+      }
       if (dateType === "created") {
         result += `<div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> ${this.date(
           relatedPosts[i].created,

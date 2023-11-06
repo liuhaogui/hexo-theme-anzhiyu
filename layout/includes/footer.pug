@@ -47,11 +47,12 @@
     else
       .copyright!= `&copy;${nowYear} By ${config.author}`
 
+
   - let work_img = theme.footer.runtime.work_img
   - let work_description = theme.footer.runtime.work_description
   if theme.footer.runtime.enable
     #workboard
-      img(src=`${work_img}`, alt=`${work_description}`, title=`${work_description}`, class="workSituationImg boardsign")
+      div(class="workSituationImg boardsign")
       #runtimeTextTip
   if theme.footer.custom_text
     .footer_custom_text!=`${theme.footer.custom_text}`
@@ -72,9 +73,11 @@ if theme.footer.footerBar && theme.footer.footerBar.enable
             if theme.footer.owner.since && theme.footer.owner.since != nowYear
               .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By `
                 a.footer-bar-link(href=url_for(authorLink) title=config.author target="_blank")=config.author
+                a.footer-bar-rss(href='/index.xml') Rss
             else
               .copyright!= `&copy;${nowYear} By `
                 a.footer-bar-link(href=url_for(authorLink) title=config.author target="_blank")=config.author
+                a.footer-bar-rss(href='/index.xml') Rss
         #footer-type-tips
         if theme.footer.footerBar && theme.footer.footerBar.subTitle && theme.footer.footerBar.subTitle.enable
           .js-pjax
